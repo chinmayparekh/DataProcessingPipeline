@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <stage>
+        <input type="text">test.txt</input>
+        <task type="in-built">display</task>
+        <output>output.txt</output>
+        <sequenceId>1</sequenceId>
+    </stage>
+</pipeline>
