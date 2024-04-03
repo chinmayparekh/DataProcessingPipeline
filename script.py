@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 from lxml import etree
-import task_library
+import lib.task_library as task_library
 
 def validate_xml(xml_path, xsd_path):
     schema_root = etree.parse(xsd_path)
@@ -32,7 +32,7 @@ def parse_and_execute(xml_path):
 
 
 
-if validate_xml('process1.xml', 'pipeline.xsd'):
-    parse_and_execute('process1.xml')
+if validate_xml('input/process1.xml', 'schema/pipeline.xsd'):
+    parse_and_execute('input/process1.xml')
 else:
     print("The XML file is invalid.")
