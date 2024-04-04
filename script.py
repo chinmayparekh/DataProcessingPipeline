@@ -26,13 +26,12 @@ def parse_and_execute(xml_path):
         input_file_path = stage.find('input').text
         output_file_path = stage.find('output').text
 
-        # Calling the appropriate function from the task library
         if hasattr(task_library, task):
             getattr(task_library, task)(input_file_path, output_file_path)
 
 
-
-if validate_xml('input/process1.xml', 'schema/pipeline.xsd'):
-    parse_and_execute('input/process1.xml')
-else:
-    print("The XML file is invalid.")
+if __name__ == '__main__':
+    if validate_xml('input/process1.xml', 'schema/pipeline.xsd'):
+        parse_and_execute('input/process1.xml')
+    else:
+        print("The XML file is invalid.")
