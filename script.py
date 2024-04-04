@@ -16,22 +16,37 @@ def validate_xml(xml_path, xsd_path):
         print(schema.error_log)
         return False
 
+# def parse_and_execute(xml_path):
+#     tree = ET.parse(xml_path)
+#     root = tree.getroot()
+
+#     for stage in root.findall('stage'):
+#         task = stage.find('task')
+#         function_name = task.find('function').text
+#         input_file_path = stage.find('input').text
+#         output_file_path = stage.find('output').text
+
+#         if hasattr(task_library, function_name):
+#             getattr(task_library, function_name)(input_file_path, output_file_path)
+
 def parse_and_execute(xml_path):
     tree = ET.parse(xml_path)
     root = tree.getroot()
 
     for stage in root.findall('stage'):
-        task = stage.find('task').text
-        print(task)
+        task = stage.find('task')
+        function_name = task.find('function').text
         input_file_path = stage.find('input').text
         output_file_path = stage.find('output').text
+        conditions = [condition.text for condition in task.findall('condition')]
 
-        if hasattr(task_library, task):
-            getattr(task_library, task)(input_file_path, output_file_path)
-
-
+        if hasattr(task_library, function_name):
+            if conditions:
+                getattr(task_library, function_name)(input_file_path, output_file_path, conditions)
+            else:
+                getattr(task_library, function_name)(input_file_path, output_file_path)
 if __name__ == '__main__':
-    if validate_xml('input/process1.xml', 'schema/pipeline.xsd'):
-        parse_and_execute('input/process1.xml')
+    if validate_xml('input/input_excel.xml', 'schema/pipeline2.xsd'):
+        parse_and_execute('input/input_excel.xml')
     else:
         print("The XML file is invalid.")
