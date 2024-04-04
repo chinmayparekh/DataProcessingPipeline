@@ -3,7 +3,13 @@
     <stage>
         <input type="text">input/test.txt</input>
         <task type="in-built">display</task>
-        <output>output/output.txt</output>
+        <output>output/output1.txt</output>
         <sequenceId>1</sequenceId>
+    </stage>
+    <stage>
+        <input type="text">output/output1.txt</input>
+        <task type="in-built">upper</task>
+        <output>output/output1.txt</output>
+        <sequenceId>2</sequenceId>
     </stage>
 </pipeline>
