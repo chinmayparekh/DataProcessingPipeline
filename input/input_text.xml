@@ -3,9 +3,55 @@
     <stage>
         <input type="text">input/test.txt</input>
         <task type="in-built">
-            <function>display</function>
+            <function>uppercase</function>
+            <!-- <condition>Name</condition> -->
         </task>
-        <output>output/output.txt</output>
+        <output>output/output_UC.txt</output>
         <sequenceId>1</sequenceId>
+    </stage>
+    <stage>
+        <input type="text">input/test.txt</input>
+        <task type="in-built">
+            <function>lowercase</function>
+            <!-- <condition>Name</condition> -->
+            <!-- <condition>Age</condition> -->
+        </task>
+        <output>output/output_LC.txt</output>
+        <sequenceId>2</sequenceId>
+    </stage>
+    <stage>
+        <input type="text">input/test.txt</input>
+        <task type="in-built">
+            <function>tokenize_text</function>
+        </task>
+        <output>output/output_token.txt</output>
+        <sequenceId>3</sequenceId>
+    </stage>
+    <stage>
+        <input type="text">input/test.txt</input>
+        <task type="in-built">
+            <function>stem_text</function>
+            <!-- <condition>Name</condition> -->
+        </task>
+        <output>output/output_stem.txt</output>
+        <sequenceId>4</sequenceId>
+    </stage>
+    <stage>
+        <input type="text">input/test.txt</input>
+        <task type="in-built">
+            <function>lemmatize_text</function>
+            <!-- <condition>Age</condition> -->
+        </task>
+        <output>output/output_lemm.txt</output>
+        <sequenceId>5</sequenceId>
+    </stage>
+    <stage>
+        <input type="text">input/test.txt</input>
+        <task type="in-built">
+            <function>remove_stopwords</function>
+            <!-- <condition>Age</condition> -->
+        </task>
+        <output>output/output_stop.txt</output>
+        <sequenceId>6</sequenceId>
     </stage>
 </pipeline>
