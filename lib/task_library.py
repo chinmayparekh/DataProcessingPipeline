@@ -3,6 +3,9 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer, WordNetLemmatizer
 from nltk.corpus import stopwords
+import mysql.connector
+import json
+
 
 nltk.download('punkt')
 nltk.download('wordnet')
@@ -118,3 +121,30 @@ def remove_stopwords(input_file_path, output_file_path):
     
     with open(output_file_path, 'w') as file:
         file.write(' '.join(filtered_tokens))
+
+def sql_connection():
+    with open('config/config.json') as config_file:
+        config = json.load(config_file)
+
+    mydb = mysql.connector.connect(
+        host = config['server'],
+        user = config['user'],
+        password = config['password'],
+        database = config['database']
+    )
+
+    return mydb
+
+def sql_query(query, mydb):
+    cursor = mydb.cursor()
+
+    cursor.execute(query)
+
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
+
+    cursor.close()
+    mydb.close()
+
+sql_query("SELECT * FROM employee", sql_connection())
