@@ -1,6 +1,63 @@
 {
-    "server": "localhost",
-    "database": "companydb",
-    "user": "kritin",
-    "password": "password"
-  }
+  "databases": [
+    {
+      "database": "companydb",
+      "server": "localhost",
+      "user": "kritin",
+      "password": "password"
+    },
+    {
+      "database": "Text1",
+      "path": "input/test.txt"
+    },
+    {
+      "database": "StopWords",
+      "path" : "output/output_stop.txt"
+    },
+    {
+      "database": "Students",
+      "path": "input/Students.xlsx"
+    },
+    {
+      "database": "Lemmatize",
+      "path" : "output/output_lemm.txt"
+    },
+    {
+      "database": "Stemming",
+      "path" : "output/output_stem.txt"
+    },
+    {
+      "database": "Tokenize",
+      "path" : "output/output_token.txt"
+    },
+    {
+      "database": "Lower",
+      "path" : "output/output_LC.txt"
+    },
+    {
+      "database": "Upper",
+      "path" : "output/output_UC.txt"
+    },
+    {
+      "database": "Slice",
+      "path" : "output/output_slice.txt"
+    },
+    {
+      "database": "Dice",
+      "path" : "output/output_dice.txt"
+    },
+    {
+      "database": "NoNull",
+      "path" : "output/output_no_nulls.txt"
+    },
+    {
+      "database": "Upper",
+      "path" : "output/output_upper.txt"
+    },
+    {
+      "database": "Mean",
+      "path" : "output/output_mean.txt"
+    }
+
+  ]
+}
