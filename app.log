@@ -1,23 +1,5 @@
-INFO:root:query: ['SELECT * FROM employee']
-INFO:root:Slicing DataFrame
-INFO:root:Dicing DataFrame
-INFO:root:Removing null values from DataFrame.
-INFO:root:Converting column to uppercase: 
-INFO:root:Calculating mean of column: 
-INFO:root:Slicing DataFrame
-INFO:root:Slicing DataFrame
-ERROR:root:Could not find database
-INFO:root:Slicing DataFrame
-ERROR:root:Could not find database
-ERROR:root:Type error: 'NoneType' object is not subscriptable
-INFO:root:Dicing DataFrame
-INFO:root:Removing null values from DataFrame.
-INFO:root:Converting column to uppercase: 
-INFO:root:Calculating mean of column: 
-INFO:root:Slicing DataFrame
-ERROR:root:Could not find database
-ERROR:root:Type error: 'NoneType' object is not subscriptable
-INFO:root:Dicing DataFrame
-INFO:root:Removing null values from DataFrame.
-INFO:root:Converting column to uppercase: 
-INFO:root:Calculating mean of column: 
+INFO:root:query: ['SELECT fname, minit, lname, ssn-1, address, sex, super_ssn, dno FROM employee']
+ERROR:root:MySQL Error: 1146 (42S02): Table 'companydb.employee2' doesn't exist
+INFO:root:query: ['SELECT fname, minit, lname, ssn-1, address, sex, super_ssn, dno FROM employee']
+ERROR:root:MySQL Error: 1406 (22001): Data too long for column 'ssn' at row 1
+INFO:root:query: ['SELECT fname, minit, lname, ssn, address, sex, super_ssn, dno FROM employee']

@@ -4,9 +4,9 @@
         <input type="sql">companydb</input>
         <task type="in-built">
             <function>sql_query</function>
-            <param>SELECT * FROM employee</param>
+            <param>SELECT fname, minit, lname, ssn, address, sex, super_ssn, dno FROM employee</param>
         </task>
-        <output>SQL_Output</output>
+        <output>companydb</output>
         <sequenceId>1</sequenceId>
     </stage>
 </pipeline>

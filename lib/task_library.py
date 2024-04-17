@@ -255,15 +255,14 @@ def remove_stopwords(input_file_path, output_file_path):
         #print(f"Error: Type error - {e}")
 
 def sql_query(input_file_path, output_file_path, query):
-    output_file_path = get_file_path(output_file_path)["path"]
+    # output_file_path = get_file_path(output_file_path)["path"]
     config = get_file_path(input_file_path)
+    outputSQLTable = config['table']
+
 
     #print(input_file_path)
     try:
-        #print("query: " + str(query[0]))
 
-
-        
         mydb = mysql.connector.connect(
             host = config['server'],
             user = config['user'],
@@ -274,11 +273,28 @@ def sql_query(input_file_path, output_file_path, query):
 
         cursor.execute(str(query[0]))
         logging.info("query: " + str(query))
+        print(str(query[0]))
         rows = cursor.fetchall()
 
-        with open(output_file_path, 'w') as output_file:
-            for row in rows:
-                output_file.write(str(row) + '\n')
+        
+        for row in rows:
+            # row = list(row)
+            # row[0] = "BTV"
+            # row[3]="122445678"
+            # row = tuple(row)
+            print(str(row))
+            # print("INSERTING", row, "INTO", outputSQLTable)
+            insert_query = f"INSERT INTO employee2 VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"  # Modify this query with your table's columns
+            print(insert_query)
+            cursor.execute(insert_query, row)
+
+
+        # Commit the transaction
+        mydb.commit()
+
+        # with open(output_file_path, 'w') as output_file:
+        #     for row in rows:
+        #         output_file.write(str(row) + '\n')
                 #print(row)
 
         cursor.close()

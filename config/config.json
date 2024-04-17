@@ -4,7 +4,8 @@
       "database": "companydb",
       "server": "localhost",
       "user": "kritin",
-      "password": "password"
+      "password": "password",
+      "table": "employee"
     },
     {
       "database": "Text1",
