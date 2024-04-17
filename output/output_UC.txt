@@ -1,2 +1,6 @@
-HI, I AM BADAM
-I AM BORED
+      Name  Age  CGPA
+0  CHINMAY   21  3.68
+1    ARJUN   24  2.54
+2      DEV   13   NaN
+3     SITA   42   NaN
+4     AJAY   20  3.20

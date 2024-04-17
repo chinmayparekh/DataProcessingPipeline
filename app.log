@@ -1,0 +1,23 @@
+INFO:root:query: ['SELECT * FROM employee']
+INFO:root:Slicing DataFrame
+INFO:root:Dicing DataFrame
+INFO:root:Removing null values from DataFrame.
+INFO:root:Converting column to uppercase: 
+INFO:root:Calculating mean of column: 
+INFO:root:Slicing DataFrame
+INFO:root:Slicing DataFrame
+ERROR:root:Could not find database
+INFO:root:Slicing DataFrame
+ERROR:root:Could not find database
+ERROR:root:Type error: 'NoneType' object is not subscriptable
+INFO:root:Dicing DataFrame
+INFO:root:Removing null values from DataFrame.
+INFO:root:Converting column to uppercase: 
+INFO:root:Calculating mean of column: 
+INFO:root:Slicing DataFrame
+ERROR:root:Could not find database
+ERROR:root:Type error: 'NoneType' object is not subscriptable
+INFO:root:Dicing DataFrame
+INFO:root:Removing null values from DataFrame.
+INFO:root:Converting column to uppercase: 
+INFO:root:Calculating mean of column: 

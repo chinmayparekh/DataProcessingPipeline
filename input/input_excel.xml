@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <stage>
-        <input type="excel">input/Students.xlsx</input>
+        <input type="excel">Students</input>
         <task type="in-built">
             <function>slice</function>
             <param>Name</param>
         </task>
-        <output>output/output_slice.txt</output>
+        <output>Slice</output>
         <sequenceId>1</sequenceId>
     </stage>
     <stage>
-        <input type="excel">input/Students.xlsx</input>
+        <input type="excel">Students</input>
         <task type="in-built">
             <function>dice</function>
             <param>Name</param>
             <param>Age</param>
         </task>
-        <output>output/output_dice.txt</output>
+        <output>Dice</output>
         <sequenceId>2</sequenceId>
     </stage>
     <stage>
-        <input type="excel">input/Students.xlsx</input>
+        <input type="excel">Students</input>
         <task type="in-built">
             <function>remove_nulls</function>
         </task>
-        <output>output/output_no_nulls.txt</output>
+        <output>NoNull</output>
         <sequenceId>3</sequenceId>
     </stage>
     <stage>
-        <input type="excel">input/Students.xlsx</input>
+        <input type="excel">Students</input>
         <task type="in-built">
             <function>upper</function>
             <param>Name</param>
         </task>
-        <output>output/output_upper.txt</output>
+        <output>Upper</output>
         <sequenceId>4</sequenceId>
     </stage>
     <stage>
-        <input type="excel">input/Students.xlsx</input>
+        <input type="excel">Students</input>
         <task type="in-built">
             <function>mean</function>
             <param>Age</param>
         </task>
-        <output>output/output_mean.txt</output>
+        <output>Mean</output>
         <sequenceId>5</sequenceId>
     </stage>
 </pipeline>

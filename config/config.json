@@ -57,7 +57,12 @@
     {
       "database": "Mean",
       "path" : "output/output_mean.txt"
+    },
+    {
+      "database": "SQL_Output",
+      "path" : "output/sql.txt"
     }
+
 
   ]
 }

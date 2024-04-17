@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <stage>
-        <input type="sql">input/test.txt</input>
+        <input type="sql">companydb</input>
         <task type="in-built">
             <function>sql_query</function>
             <param>SELECT * FROM employee</param>
         </task>
-        <output>output/test.txt</output>
+        <output>SQL_Output</output>
         <sequenceId>1</sequenceId>
     </stage>
 </pipeline>
