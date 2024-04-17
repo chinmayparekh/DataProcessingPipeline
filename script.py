@@ -16,19 +16,6 @@ def validate_xml(xml_path, xsd_path):
         print(schema.error_log)
         return False
 
-# def parse_and_execute(xml_path):
-#     tree = ET.parse(xml_path)
-#     root = tree.getroot()
-
-#     for stage in root.findall('stage'):
-#         task = stage.find('task')
-#         function_name = task.find('function').text
-#         input_file_path = stage.find('input').text
-#         output_file_path = stage.find('output').text
-
-#         if hasattr(task_library, function_name):
-#             getattr(task_library, function_name)(input_file_path, output_file_path)
-
 def parse_and_execute(xml_path):
     tree = ET.parse(xml_path)
     root = tree.getroot()
@@ -38,11 +25,11 @@ def parse_and_execute(xml_path):
         function_name = task.find('function').text
         input_file_path = stage.find('input').text
         output_file_path = stage.find('output').text
-        conditions = [condition.text for condition in task.findall('condition')]
+        param = [param.text for param in task.findall('param')]
 
         if hasattr(task_library, function_name):
-            if conditions:
-                getattr(task_library, function_name)(input_file_path, output_file_path, conditions)
+            if param:
+                getattr(task_library, function_name)(input_file_path, output_file_path, param)
             else:
                 getattr(task_library, function_name)(input_file_path, output_file_path)
 if __name__ == '__main__':

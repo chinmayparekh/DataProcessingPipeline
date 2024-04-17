@@ -1,57 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <stage>
-        <input type="text">input/test.txt</input>
+        <input type="sql">input/test.txt</input>
         <task type="in-built">
-            <function>uppercase</function>
-            <!-- <condition>Name</condition> -->
+            <function>sql_query</function>
+            <param>SELECT * FROM employee</param>
         </task>
-        <output>output/output_UC.txt</output>
+        <output>output/test.txt</output>
         <sequenceId>1</sequenceId>
-    </stage>
-    <stage>
-        <input type="text">input/test.txt</input>
-        <task type="in-built">
-            <function>lowercase</function>
-            <!-- <condition>Name</condition> -->
-            <!-- <condition>Age</condition> -->
-        </task>
-        <output>output/output_LC.txt</output>
-        <sequenceId>2</sequenceId>
-    </stage>
-    <stage>
-        <input type="text">input/test.txt</input>
-        <task type="in-built">
-            <function>tokenize_text</function>
-        </task>
-        <output>output/output_token.txt</output>
-        <sequenceId>3</sequenceId>
-    </stage>
-    <stage>
-        <input type="text">input/test.txt</input>
-        <task type="in-built">
-            <function>stem_text</function>
-            <!-- <condition>Name</condition> -->
-        </task>
-        <output>output/output_stem.txt</output>
-        <sequenceId>4</sequenceId>
-    </stage>
-    <stage>
-        <input type="text">input/test.txt</input>
-        <task type="in-built">
-            <function>lemmatize_text</function>
-            <!-- <condition>Age</condition> -->
-        </task>
-        <output>output/output_lemm.txt</output>
-        <sequenceId>5</sequenceId>
-    </stage>
-    <stage>
-        <input type="text">input/test.txt</input>
-        <task type="in-built">
-            <function>remove_stopwords</function>
-            <!-- <condition>Age</condition> -->
-        </task>
-        <output>output/output_stop.txt</output>
-        <sequenceId>6</sequenceId>
     </stage>
 </pipeline>

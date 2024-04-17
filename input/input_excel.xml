@@ -4,7 +4,7 @@
         <input type="excel">input/Students.xlsx</input>
         <task type="in-built">
             <function>slice</function>
-            <condition>Name</condition>
+            <param>Name</param>
         </task>
         <output>output/output_slice.txt</output>
         <sequenceId>1</sequenceId>
@@ -13,8 +13,8 @@
         <input type="excel">input/Students.xlsx</input>
         <task type="in-built">
             <function>dice</function>
-            <condition>Name</condition>
-            <condition>Age</condition>
+            <param>Name</param>
+            <param>Age</param>
         </task>
         <output>output/output_dice.txt</output>
         <sequenceId>2</sequenceId>
@@ -31,7 +31,7 @@
         <input type="excel">input/Students.xlsx</input>
         <task type="in-built">
             <function>upper</function>
-            <condition>Name</condition>
+            <param>Name</param>
         </task>
         <output>output/output_upper.txt</output>
         <sequenceId>4</sequenceId>
@@ -40,7 +40,7 @@
         <input type="excel">input/Students.xlsx</input>
         <task type="in-built">
             <function>mean</function>
-            <condition>Age</condition>
+            <param>Age</param>
         </task>
         <output>output/output_mean.txt</output>
         <sequenceId>5</sequenceId>

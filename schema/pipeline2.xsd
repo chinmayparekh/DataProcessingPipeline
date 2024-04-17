@@ -12,7 +12,7 @@
     <xs:complexType name="taskType" mixed="true">
         <xs:sequence>
             <xs:element type="xs:string" name="function" minOccurs="1" maxOccurs="1" />
-            <xs:element type="xs:string" name="condition" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element type="xs:string" name="param" minOccurs="0" maxOccurs="unbounded" />
         </xs:sequence>
         <xs:attribute type="xs:string" name="type" use="required" />
     </xs:complexType>
