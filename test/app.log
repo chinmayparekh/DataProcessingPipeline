@@ -1,0 +1,7 @@
+2024-04-25 12:29:27,599 query: ['SELECT * FROM employee']
+2024-04-25 12:29:27,601 MySQL Error: 1062 (23000): Duplicate entry '123456789' for key 'employee2.PRIMARY'
+2024-04-25 12:29:27,602 Slicing DataFrame
+2024-04-25 12:29:27,760 Dicing DataFrame
+2024-04-25 12:29:27,772 Removing null values from DataFrame.
+2024-04-25 12:29:27,786 Converting column to uppercase: 
+2024-04-25 12:29:27,800 Calculating mean of column: 

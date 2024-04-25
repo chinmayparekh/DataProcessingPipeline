@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 from lxml import etree
-import lib.task_library as task_library
+from lib import task_library
 
 def validate_xml(xml_path, xsd_path):
     schema_root = etree.parse(xsd_path)
@@ -19,7 +19,7 @@ def validate_xml(xml_path, xsd_path):
 def parse_and_execute(xml_path):
     tree = ET.parse(xml_path)
     root = tree.getroot()
-
+    config_path = root.find('config').text
     for stage in root.findall('stage'):
         task = stage.find('task')
         function_name = task.find('function').text
@@ -29,13 +29,13 @@ def parse_and_execute(xml_path):
 
         if hasattr(task_library, function_name):
             if param:
-                getattr(task_library, function_name)(input_file_path, output_file_path, param)
+                getattr(task_library, function_name)(input_file_path, output_file_path, param,config_path)
             else:
-                getattr(task_library, function_name)(input_file_path, output_file_path)
-if __name__ == '__main__':
-    if validate_xml('input/input_text.xml', 'schema/pipeline2.xsd'):
-        parse_and_execute('input/input_text.xml')
-    if validate_xml('input/input_excel.xml', 'schema/pipeline2.xsd'):
-        parse_and_execute('input/input_excel.xml')
-    else:
-        print("The XML file is invalid.")
+                getattr(task_library, function_name)(input_file_path, output_file_path,config_path)
+# if __name__ == '__main__':
+#     if validate_xml('input/input_text.xml', 'schema/pipeline2.xsd'):
+#         parse_and_execute('input/input_text.xml')
+#     if validate_xml('input/input_excel.xml', 'schema/pipeline2.xsd'):
+#         parse_and_execute('input/input_excel.xml')
+#     else:
+#         print("The XML file is invalid.")

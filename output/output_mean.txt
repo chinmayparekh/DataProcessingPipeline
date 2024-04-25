@@ -1,2 +1,0 @@
-Age    24.0
-dtype: float64

@@ -38,7 +38,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element type="stageType" name="stage" maxOccurs="unbounded" minOccurs="0" />
-                <xs:element type="xs:string" name="config" minOccurs="0" maxOccurs="1" />
+                <xs:element type="xs:string" name="config" minOccurs="1" maxOccurs="1" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>

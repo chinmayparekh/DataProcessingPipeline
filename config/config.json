@@ -9,59 +9,59 @@
     },
     {
       "database": "Text1",
-      "path": "input/test.txt"
+      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/input/test.txt"
     },
     {
       "database": "StopWords",
-      "path": "output/output_stop.txt"
+      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_stop.txt"
     },
     {
       "database": "Students",
-      "path": "input/Students.xlsx"
+      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/input/Students.xlsx"
     },
     {
       "database": "Lemmatize",
-      "path": "output/output_lemm.txt"
+      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_lemm.txt"
     },
     {
       "database": "Stemming",
-      "path": "output/output_stem.txt"
+      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_stem.txt"
     },
     {
       "database": "Tokenize",
-      "path": "output/output_token.txt"
+      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_token.txt"
     },
     {
       "database": "Lower",
-      "path": "output/output_LC.txt"
+      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/testing.txt"
     },
     {
       "database": "Upper",
-      "path": "output/output_UC.txt"
+      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_UC.txt"
     },
     {
       "database": "Slice",
-      "path": "output/output_slice.txt"
+      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_slice.txt"
     },
     {
       "database": "Dice",
-      "path": "output/output_dice.txt"
+      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_dice.txt"
     },
     {
       "database": "NoNull",
-      "path": "output/output_no_nulls.txt"
+      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_no_nulls.txt"
     },
     {
       "database": "Upper",
-      "path": "output/output_upper.txt"
+      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_upper.txt"
     },
     {
       "database": "Mean",
-      "path": "output/output_mean.txt"
+      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_mean.txt"
     },
     {
       "database": "SQL_Output",
-      "path": "output/sql.txt"
+      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/sql.txt"
     }
   ]
 }
