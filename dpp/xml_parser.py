@@ -3,7 +3,7 @@ from lxml import etree
 from dpp import task_library
 
 def validate_xml(xml_path):
-    xsd_path = "pipeline2.xsd"
+    xsd_path = "./pipeline2.xsd"
     schema_root = etree.parse(xsd_path)
     schema = etree.XMLSchema(schema_root)
 
