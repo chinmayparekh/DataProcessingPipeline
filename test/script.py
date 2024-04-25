@@ -1,4 +1,4 @@
-from lib import xml_parser as xml_parser
+from dpp import xml_parser as xml_parser
 # def validate_xml(xml_path, xsd_path):
 #     schema_root = etree.parse(xsd_path)
 #     schema = etree.XMLSchema(schema_root)
