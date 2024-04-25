@@ -1,5 +1,10 @@
-INFO:root:query: ['SELECT fname, minit, lname, ssn-1, address, sex, super_ssn, dno FROM employee']
-ERROR:root:MySQL Error: 1146 (42S02): Table 'companydb.employee2' doesn't exist
-INFO:root:query: ['SELECT fname, minit, lname, ssn-1, address, sex, super_ssn, dno FROM employee']
-ERROR:root:MySQL Error: 1406 (22001): Data too long for column 'ssn' at row 1
-INFO:root:query: ['SELECT fname, minit, lname, ssn, address, sex, super_ssn, dno FROM employee']
+2024-04-25 11:16:45,846 MySQL Error: Authentication plugin 'caching_sha2_password' is not supported
+2024-04-25 11:17:26,903 query: ['SELECT * FROM employee']
+2024-04-25 11:17:26,906 MySQL Error: 1062 (23000): Duplicate entry '123456789' for key 'employee2.PRIMARY'
+2024-04-25 11:17:49,168 query: ['SELECT * FROM employee']
+2024-04-25 11:17:49,170 MySQL Error: 1062 (23000): Duplicate entry '123456789' for key 'employee2.PRIMARY'
+2024-04-25 11:17:49,171 Slicing DataFrame
+2024-04-25 11:17:49,335 Dicing DataFrame
+2024-04-25 11:17:49,346 Removing null values from DataFrame.
+2024-04-25 11:17:49,356 Converting column to uppercase: 
+2024-04-25 11:17:49,367 Calculating mean of column: 

@@ -3,9 +3,9 @@
     {
       "database": "companydb",
       "server": "localhost",
-      "user": "kritin",
+      "user": "root",
       "password": "password",
-      "table": "employee"
+      "table": "employee2"
     },
     {
       "database": "Text1",
@@ -13,7 +13,7 @@
     },
     {
       "database": "StopWords",
-      "path" : "output/output_stop.txt"
+      "path": "output/output_stop.txt"
     },
     {
       "database": "Students",
@@ -21,49 +21,47 @@
     },
     {
       "database": "Lemmatize",
-      "path" : "output/output_lemm.txt"
+      "path": "output/output_lemm.txt"
     },
     {
       "database": "Stemming",
-      "path" : "output/output_stem.txt"
+      "path": "output/output_stem.txt"
     },
     {
       "database": "Tokenize",
-      "path" : "output/output_token.txt"
+      "path": "output/output_token.txt"
     },
     {
       "database": "Lower",
-      "path" : "output/output_LC.txt"
+      "path": "output/output_LC.txt"
     },
     {
       "database": "Upper",
-      "path" : "output/output_UC.txt"
+      "path": "output/output_UC.txt"
     },
     {
       "database": "Slice",
-      "path" : "output/output_slice.txt"
+      "path": "output/output_slice.txt"
     },
     {
       "database": "Dice",
-      "path" : "output/output_dice.txt"
+      "path": "output/output_dice.txt"
     },
     {
       "database": "NoNull",
-      "path" : "output/output_no_nulls.txt"
+      "path": "output/output_no_nulls.txt"
     },
     {
       "database": "Upper",
-      "path" : "output/output_upper.txt"
+      "path": "output/output_upper.txt"
     },
     {
       "database": "Mean",
-      "path" : "output/output_mean.txt"
+      "path": "output/output_mean.txt"
     },
     {
       "database": "SQL_Output",
-      "path" : "output/sql.txt"
+      "path": "output/sql.txt"
     }
-
-
   ]
 }

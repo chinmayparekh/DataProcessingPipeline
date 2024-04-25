@@ -8,7 +8,7 @@ import json
 import logging
 
 # Configure logging
-logging.basicConfig(filename='app.log', level=logging.INFO)
+logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
 
 nltk.download('punkt')
@@ -270,13 +270,14 @@ def sql_query(input_file_path, output_file_path, query):
             database = config['database']
         )
         cursor = mydb.cursor()
-
+        print(get_file_path(output_file_path)["table"])
         cursor.execute(str(query[0]))
         logging.info("query: " + str(query))
         print(str(query[0]))
         rows = cursor.fetchall()
-
-        
+        num=len(rows[0])
+        s_string = ','.join(['%s'] * num)
+        print(s_string)
         for row in rows:
             # row = list(row)
             # row[0] = "BTV"
@@ -284,7 +285,7 @@ def sql_query(input_file_path, output_file_path, query):
             # row = tuple(row)
             print(str(row))
             # print("INSERTING", row, "INTO", outputSQLTable)
-            insert_query = f"INSERT INTO employee2 VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"  # Modify this query with your table's columns
+            insert_query = f"INSERT INTO "+get_file_path(output_file_path)["table"]+" VALUES ("+s_string+")"  # Modify this query with your table's columns
             print(insert_query)
             cursor.execute(insert_query, row)
 

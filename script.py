@@ -35,7 +35,7 @@ def parse_and_execute(xml_path):
 if __name__ == '__main__':
     if validate_xml('input/input_text.xml', 'schema/pipeline2.xsd'):
         parse_and_execute('input/input_text.xml')
-    # if validate_xml('input/input_excel.xml', 'schema/pipeline2.xsd'):
-    #     parse_and_execute('input/input_excel.xml')
+    if validate_xml('input/input_excel.xml', 'schema/pipeline2.xsd'):
+        parse_and_execute('input/input_excel.xml')
     else:
         print("The XML file is invalid.")
