@@ -1,0 +1,4 @@
+      Name  Age  CGPA
+0  Chinmay   21  3.68
+1    Arjun   24  2.54
+4     Ajay   20  3.20

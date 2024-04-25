@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 from lxml import etree
-from lib import task_library
+from dpp import task_library
 
 def validate_xml(xml_path, xsd_path):
     schema_root = etree.parse(xsd_path)
