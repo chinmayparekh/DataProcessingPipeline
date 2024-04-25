@@ -8,7 +8,7 @@ import json
 import logging
 
 # Configure logging
-logging.basicConfig(filename='/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/test/app.log', level=logging.INFO, format='%(asctime)s %(message)s')
+logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
 nltk.download('punkt')
 nltk.download('wordnet')

@@ -20,3 +20,10 @@
 2024-04-25 13:33:52,893 Removing null values from DataFrame.
 2024-04-25 13:33:52,906 Converting column to uppercase: 
 2024-04-25 13:33:52,918 Calculating mean of column: 
+2024-04-25 13:43:24,996 query: ['SELECT * FROM employee']
+2024-04-25 13:43:25,001 MySQL Error: 1062 (23000): Duplicate entry '123456789' for key 'employee2.PRIMARY'
+2024-04-25 13:43:25,003 Slicing DataFrame
+2024-04-25 13:43:25,147 Dicing DataFrame
+2024-04-25 13:43:25,159 Removing null values from DataFrame.
+2024-04-25 13:43:25,172 Converting column to uppercase: 
+2024-04-25 13:43:25,184 Calculating mean of column: 
