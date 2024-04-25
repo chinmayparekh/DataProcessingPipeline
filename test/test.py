@@ -1,4 +1,7 @@
-from dpp.task_library import lowercase
+from dpp import xml_parser as xml_parser
 
-
-lowercase('Text1', 'Lower', '/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/config/config.json')
+if __name__ == '__main__':
+    if xml_parser.validate_xml('excel.xml'):
+        xml_parser.parse_and_execute("excel.xml")
+    else:
+        print("The XML file is invalid.")

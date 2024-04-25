@@ -17,7 +17,7 @@
     },
     {
       "database": "Students",
-      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/input/Students.xlsx"
+      "path": "/Users/sumanth/Documents/sem8/DM/DataProcessingPipeline/input/Students.xlsx"
     },
     {
       "database": "Lemmatize",
@@ -41,23 +41,23 @@
     },
     {
       "database": "Slice",
-      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_slice.txt"
+      "path": "/Users/sumanth/Documents/sem8/DM/DataProcessingPipeline/output/output_slice.txt"
     },
     {
       "database": "Dice",
-      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_dice.txt"
+      "path": "/Users/sumanth/Documents/sem8/DM/DataProcessingPipeline/output/output_dice.txt"
     },
     {
       "database": "NoNull",
-      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_no_nulls.txt"
+      "path": "/Users/sumanth/Documents/sem8/DM/DataProcessingPipeline/output/output_no_nulls.txt"
     },
     {
       "database": "Upper",
-      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_upper.txt"
+      "path": "/Users/sumanth/Documents/sem8/DM/DataProcessingPipeline/output/output_upper.txt"
     },
     {
       "database": "Mean",
-      "path": "/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/output_mean.txt"
+      "path": "/Users/sumanth/Documents/sem8/DM/DataProcessingPipeline/output/output_mean.txt"
     },
     {
       "database": "SQL_Output",

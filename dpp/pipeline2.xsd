@@ -1,0 +1,45 @@
+<xs:schema elementFormDefault="qualified"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <xs:complexType name="inputType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="type" use="required" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="taskType" mixed="true">
+        <xs:sequence>
+            <xs:element type="xs:string" name="function" minOccurs="1" maxOccurs="1" />
+            <xs:element type="xs:string" name="param" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="type" use="required" />
+    </xs:complexType>
+
+    <xs:simpleType name="outputType">
+        <xs:restriction base="xs:string" />
+    </xs:simpleType>
+
+    <xs:simpleType name="sequenceIdType">
+        <xs:restriction base="xs:integer" />
+    </xs:simpleType>
+
+    <xs:complexType name="stageType">
+        <xs:sequence>
+            <xs:element type="inputType" name="input" />
+            <xs:element type="taskType" name="task" />
+            <xs:element type="outputType" name="output" minOccurs="0" />
+            <xs:element type="sequenceIdType" name="sequenceId" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="pipeline">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="stageType" name="stage" maxOccurs="unbounded" minOccurs="0" />
+                <xs:element type="xs:string" name="config" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <stage>
+        <input type="excel">Students</input>
+        <task type="in-built">
+            <function>slice</function>
+            <param>Name</param>
+        </task>
+        <output>Slice</output>
+        <sequenceId>1</sequenceId>
+    </stage>
+    <stage>
+        <input type="excel">Students</input>
+        <task type="in-built">
+            <function>dice</function>
+            <param>Name</param>
+            <param>Age</param>
+        </task>
+        <output>Dice</output>
+        <sequenceId>2</sequenceId>
+    </stage>
+    <stage>
+        <input type="excel">Students</input>
+        <task type="in-built">
+            <function>remove_nulls</function>
+        </task>
+        <output>NoNull</output>
+        <sequenceId>3</sequenceId>
+    </stage>
+    <stage>
+        <input type="excel">Students</input>
+        <task type="in-built">
+            <function>upper</function>
+            <param>Name</param>
+        </task>
+        <output>Upper</output>
+        <sequenceId>4</sequenceId>
+    </stage>
+    <stage>
+        <input type="excel">Students</input>
+        <task type="in-built">
+            <function>mean</function>
+            <param>Age</param>
+        </task>
+        <output>Mean</output>
+        <sequenceId>5</sequenceId>
+    </stage>
+    <config>/Users/sumanth/Documents/sem8/DM/DataProcessingPipeline/config/config.json</config>
+</pipeline>
