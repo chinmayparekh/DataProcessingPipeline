@@ -100,9 +100,9 @@ def parse_and_execute(xml_path):
                         getattr(task_library, function_name)(input_file_path, output_file_path,config_path)
 
 # if __name__ == '__main__':
-#     if validate_xml('input/input_text.xml', 'schema/pipeline2.xsd'):
+#     if validate_xml('input/input_text.xml', 'schema/schema.xsd'):
 #         parse_and_execute('input/input_text.xml')
-#     if validate_xml('input/input_excel.xml', 'schema/pipeline2.xsd'):
+#     if validate_xml('input/input_excel.xml', 'schema/schema.xsd'):
 #         parse_and_execute('input/input_excel.xml')
 #     else:
 #         print("The XML file is invalid.")
