@@ -7,16 +7,6 @@ from dpp import task_library, udf
 logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
 
-def execute_shell_script(input_file_path, output_file_path, function_name, param):
-    command = function_name  
-    command += f" {input_file_path} {output_file_path}"  
-
-    try:
-        subprocess.run(command, shell=True, check=True)
-        logging.info(f"Executed shell script: {command}")
-    except subprocess.CalledProcessError as e:
-        logging.error(f"Shell script execution failed: {e}")
-        raise
     
 def validate_xml(xml_path):
     xsd_string = """<xs:schema elementFormDefault="qualified"
@@ -93,14 +83,14 @@ def parse_and_execute(xml_path):
             # Execute shell script
             print("SHELLING")
             logging.info("Executing Shell Script " + function_name) 
-            execute_shell_script(input_file_path, output_file_path, function_name, param)
+            task_library.execute_shell_script(input_file_path, output_file_path, function_name, param,config_path)
 
         elif hasattr(udf, function_name):
             logging.info('Executing UDF ' + function_name)
             if param:
-                getattr(udf, function_name)(input_file_path, output_file_path, param)
+                getattr(udf, function_name)(input_file_path, output_file_path, param,config_path)
             else:
-                getattr(udf, function_name)(input_file_path, output_file_path)
+                getattr(udf, function_name)(input_file_path, output_file_path,config_path)
         else:
             if hasattr(task_library, function_name):
                 if hasattr(task_library, function_name):

@@ -5,3 +5,34 @@
 2024-04-30 14:24:16,776 Executing UDF slice
 2024-04-30 14:24:16,776 Slicing DataFrame
 2024-04-30 14:24:16,776 Input file not found.
+2024-04-30 14:36:59,426 Executing Shell Script /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh
+2024-04-30 14:38:04,664 Executing Shell Script /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh
+2024-04-30 14:38:04,670 Executed shell script: /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh Text1 Shell
+2024-04-30 14:38:04,670 Executing UDF slice
+2024-04-30 14:38:04,670 Slicing DataFrame
+2024-04-30 14:38:04,671 Input file not found.
+2024-04-30 14:38:50,532 Executing Shell Script /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh
+2024-04-30 14:38:50,539 Executed shell script: /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh Text1 Shell
+2024-04-30 14:38:50,539 Executing UDF slice
+2024-04-30 14:38:50,539 Slicing DataFrame
+2024-04-30 14:38:50,539 Input file not found.
+2024-04-30 14:41:28,377 Executing Shell Script /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh
+2024-04-30 14:41:28,384 Executed shell script: /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh Text1 Shell
+2024-04-30 14:41:28,384 Executing UDF slice
+2024-04-30 14:41:28,384 Slicing DataFrame
+2024-04-30 14:41:28,385 Input file not found.
+2024-04-30 14:42:57,735 Executing Shell Script /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh
+2024-04-30 14:42:57,736 Could not find database
+2024-04-30 14:43:26,058 Executing Shell Script /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh
+2024-04-30 14:43:26,064 Executed shell script: /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh Text1 Shell
+2024-04-30 14:43:26,064 Executing UDF slice
+2024-04-30 14:43:26,064 Slicing DataFrame
+2024-04-30 14:43:26,065 Input file not found.
+2024-04-30 14:44:04,401 Executing Shell Script /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh
+2024-04-30 14:44:04,402 Could not find database
+2024-04-30 14:44:52,897 Executing Shell Script /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh
+2024-04-30 14:44:52,897 Could not find database
+2024-04-30 14:48:13,805 Executing Shell Script /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh
+2024-04-30 14:48:13,819 Executed shell script: /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/input/test.txt /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/test_shell.txt
+2024-04-30 14:48:13,819 Executing UDF slice
+2024-04-30 14:48:13,819 Slicing DataFrame

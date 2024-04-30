@@ -6,6 +6,7 @@ from nltk.corpus import stopwords
 import mysql.connector
 import json
 import logging
+import subprocess
 
 # Configure logging
 logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
@@ -307,4 +308,15 @@ def sql_query(input_file_path, output_file_path, query,config_path):
         logging.error(f"Type error: {e}")
         #print(f"Error: Type error - {e}")
 
-
+def execute_shell_script(input_file_path, output_file_path, function_name, param,config_path):
+    command = function_name  
+    # command += f" {input_file_path} {output_file_path}"  
+    print(input_file_path,output_file_path)
+    command += f" {get_file_path(input_file_path,config_path)['path']} {get_file_path(output_file_path,config_path)['path']}"  
+    print(command)
+    try:
+        subprocess.run(command, shell=True, check=True)
+        logging.info(f"Executed shell script: {command}")
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Shell script execution failed: {e}")
+        raise

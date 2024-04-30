@@ -16,6 +16,8 @@
             <param>Name</param>
         </task>
         <output>Slice</output>
-        <sequenceId>1</sequenceId>
+        <sequenceId>2</sequenceId>
     </stage>
+    <config>/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/config/config.json</config>
+
 </pipeline>
