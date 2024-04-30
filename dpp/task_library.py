@@ -226,6 +226,7 @@ def lemmatize_text(input_file_path, output_file_path,config_path):
     except TypeError as e:
         logging.error(f"Type error: {e}")
         #print(f"Error: Type error - {e}")
+        
 # Function for stopword removal
 def remove_stopwords(input_file_path, output_file_path,config_path):
     input_file_path = get_file_path(input_file_path,config_path)["path"]

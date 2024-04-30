@@ -1,7 +1,23 @@
+import logging
+import subprocess
 import xml.etree.ElementTree as ET
 from lxml import etree
-from dpp import task_library
+from dpp import task_library, udf
 
+logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
+
+
+def execute_shell_script(input_file_path, output_file_path, function_name, param):
+    command = function_name  
+    command += f" {input_file_path} {output_file_path}"  
+
+    try:
+        subprocess.run(command, shell=True, check=True)
+        logging.info(f"Executed shell script: {command}")
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Shell script execution failed: {e}")
+        raise
+    
 def validate_xml(xml_path):
     xsd_string = """<xs:schema elementFormDefault="qualified"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -65,6 +81,7 @@ def parse_and_execute(xml_path):
     tree = ET.parse(xml_path)
     root = tree.getroot()
     config_path = root.find('config').text
+   
     for stage in root.findall('stage'):
         task = stage.find('task')
         function_name = task.find('function').text
@@ -72,11 +89,26 @@ def parse_and_execute(xml_path):
         output_file_path = stage.find('output').text
         param = [param.text for param in task.findall('param')]
 
-        if hasattr(task_library, function_name):
+        if function_name.endswith('.sh'):
+            # Execute shell script
+            print("SHELLING")
+            logging.info("Executing Shell Script " + function_name) 
+            execute_shell_script(input_file_path, output_file_path, function_name, param)
+
+        elif hasattr(udf, function_name):
+            logging.info('Executing UDF ' + function_name)
             if param:
-                getattr(task_library, function_name)(input_file_path, output_file_path, param,config_path)
+                getattr(udf, function_name)(input_file_path, output_file_path, param)
             else:
-                getattr(task_library, function_name)(input_file_path, output_file_path,config_path)
+                getattr(udf, function_name)(input_file_path, output_file_path)
+        else:
+            if hasattr(task_library, function_name):
+                if hasattr(task_library, function_name):
+                    if param:
+                        getattr(task_library, function_name)(input_file_path, output_file_path, param,config_path)
+                    else:
+                        getattr(task_library, function_name)(input_file_path, output_file_path,config_path)
+
 # if __name__ == '__main__':
 #     if validate_xml('input/input_text.xml', 'schema/pipeline2.xsd'):
 #         parse_and_execute('input/input_text.xml')
