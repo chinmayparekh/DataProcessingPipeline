@@ -3,3 +3,5 @@ test/env
 dist
 build
 .env
+.dpp.egg-info
+datasources.json

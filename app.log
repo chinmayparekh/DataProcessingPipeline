@@ -1,0 +1,9 @@
+2024-04-30 14:53:07,416 Executing Shell Script /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh
+2024-04-30 14:53:58,056 Executing Shell Script /home/kritin/College/DM/Project/DataProcessingPipeline/dpp/example_script.sh
+2024-04-30 14:53:58,073 Executed shell script: /home/kritin/College/DM/Project/DataProcessingPipeline/dpp/example_script.sh /home/kritin/College/DM/Project/DataProcessingPipeline/input/test.txt /home/kritin/College/DM/Project/DataProcessingPipeline/output/test_shell.txt
+2024-04-30 14:53:58,073 Executing UDF slice
+2024-04-30 14:53:58,073 Slicing DataFrame
+2024-04-30 14:54:14,512 Executing Shell Script /home/kritin/College/DM/Project/DataProcessingPipeline/dpp/example_script.sh
+2024-04-30 14:54:14,527 Executed shell script: /home/kritin/College/DM/Project/DataProcessingPipeline/dpp/example_script.sh /home/kritin/College/DM/Project/DataProcessingPipeline/input/test.txt /home/kritin/College/DM/Project/DataProcessingPipeline/output/test_shell.txt
+2024-04-30 14:54:14,527 Executing UDF slice
+2024-04-30 14:54:14,527 Slicing DataFrame
