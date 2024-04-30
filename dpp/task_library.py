@@ -9,7 +9,7 @@ import logging
 import subprocess
 
 # Configure logging
-logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
+logging.basicConfig(filename='app.log', level=logging.WARNING, format='%(asctime)s %(levelname)s %(message)s')
 
 nltk.download('punkt')
 nltk.download('wordnet')
@@ -63,13 +63,10 @@ def dice(input_file_path, output_file_path, column_names,config_path):
             output_file.write(str(diced))
     except FileNotFoundError:
         logging.error("Input file not found.")
-        #print("Error: Input file not found.")
     except KeyError:
         logging.error("Column not found in the DataFrame.")
-        #print("Error: Column not found in the DataFrame.")
     except TypeError as e:
         logging.error(f"Type error: {e}")
-        #print(f"Error: Type error - {e}")
 
 # Function to remove null values from a DataFrame
 def remove_nulls(input_file_path, output_file_path,config_path):
@@ -84,10 +81,8 @@ def remove_nulls(input_file_path, output_file_path,config_path):
             output_file.write(str(no_nulls))
     except FileNotFoundError:
         logging.error("Input file not found.")
-        #print("Error: Input file not found.")
     except TypeError as e:
         logging.error(f"Type error: {e}")
-        #print(f"Error: Type error - {e}")
 # Function to convert a column to uppercase in a DataFrame
 def upper(input_file_path, output_file_path, column_name,config_path):
     try:
@@ -101,13 +96,10 @@ def upper(input_file_path, output_file_path, column_name,config_path):
             output_file.write(str(df))
     except FileNotFoundError:
         logging.error("Input file not found.")
-        #print("Error: Input file not found.")
     except KeyError:
         logging.error("Column not found in the DataFrame.")
-        #print("Error: Column not found in the DataFrame.")
     except TypeError as e:
         logging.error(f"Type error: {e}")
-        #print(f"Error: Type error - {e}")
 # Function to calculate mean of a column in a DataFrame
 def mean(input_file_path, output_file_path, column_name,config_path):
     try:
@@ -121,13 +113,10 @@ def mean(input_file_path, output_file_path, column_name,config_path):
             output_file.write(str(mean_value))
     except FileNotFoundError:
         logging.error("Input file not found.")
-        #print("Error: Input file not found.")
     except KeyError:
         logging.error("Column not found in the DataFrame.")
-        #print("Error: Column not found in the DataFrame.")
     except TypeError as e:
         logging.error(f"Type error: {e}")
-        #print(f"Error: Type error - {e}")
 # Function to convert text to uppercase
 def uppercase(input_file_path, output_file_path,config_path):
     try:
@@ -143,10 +132,8 @@ def uppercase(input_file_path, output_file_path,config_path):
             file.write(text)
     except FileNotFoundError:
         logging.error("Input file not found.")
-        #print("Error: Input file not found.")
     except TypeError as e:
         logging.error(f"Type error: {e}")
-        #print(f"Error: Type error - {e}")
 # Function to convert text to lowercase
 def lowercase(input_file_path, output_file_path,config_path):
     try:
@@ -162,10 +149,8 @@ def lowercase(input_file_path, output_file_path,config_path):
             file.write(text)
     except FileNotFoundError:
         logging.error("Input file not found.")
-        #print("Error: Input file not found.")
     except TypeError as e:
         logging.error(f"Type error: {e}")
-        #print(f"Error: Type error - {e}")
 # Function for tokenization
 def tokenize_text(input_file_path, output_file_path,config_path):
     input_file_path = get_file_path(input_file_path,config_path)["path"]
@@ -184,7 +169,6 @@ def tokenize_text(input_file_path, output_file_path,config_path):
         logging.error("Input file not found: %s", input_file_path)
     except TypeError as e:
         logging.error(f"Type error: {e}")
-        #print(f"Error: Type error - {e}")
 # Function for stemming
 def stem_text(input_file_path, output_file_path,config_path):
     input_file_path = get_file_path(input_file_path,config_path)["path"]
@@ -205,7 +189,6 @@ def stem_text(input_file_path, output_file_path,config_path):
         logging.error("Input file not found: %s", input_file_path)
     except TypeError as e:
         logging.error(f"Type error: {e}")
-        #print(f"Error: Type error - {e}")
 # Function for lemmatization
 def lemmatize_text(input_file_path, output_file_path,config_path):
     input_file_path = get_file_path(input_file_path,config_path)["path"]
@@ -226,7 +209,6 @@ def lemmatize_text(input_file_path, output_file_path,config_path):
         logging.error("Input file not found: %s", input_file_path)
     except TypeError as e:
         logging.error(f"Type error: {e}")
-        #print(f"Error: Type error - {e}")
         
 # Function for stopword removal
 def remove_stopwords(input_file_path, output_file_path,config_path):
@@ -249,15 +231,11 @@ def remove_stopwords(input_file_path, output_file_path,config_path):
 
     except TypeError as e:
         logging.error(f"Type error: {e}")
-        #print(f"Error: Type error - {e}")
 
 def sql_query(input_file_path, output_file_path, query,config_path):
-    # output_file_path = get_file_path(output_file_path,config_path)["path"]
     config = get_file_path(input_file_path,config_path)
     outputSQLTable = config['table']
 
-
-    #print(input_file_path)
     try:
 
         mydb = mysql.connector.connect(
@@ -267,34 +245,15 @@ def sql_query(input_file_path, output_file_path, query,config_path):
             database = config['database']
         )
         cursor = mydb.cursor()
-        print(get_file_path(output_file_path,config_path)["table"])
         cursor.execute(str(query[0]))
         logging.info("query: " + str(query))
-        print(str(query[0]))
         rows = cursor.fetchall()
         num=len(rows[0])
         s_string = ','.join(['%s'] * num)
-        print(s_string)
         for row in rows:
-            # row = list(row)
-            # row[0] = "BTV"
-            # row[3]="122445678"
-            # row = tuple(row)
-            print(str(row))
-            # print("INSERTING", row, "INTO", outputSQLTable)
             insert_query = f"INSERT INTO "+get_file_path(output_file_path,config_path)["table"]+" VALUES ("+s_string+")"  # Modify this query with your table's columns
-            print(insert_query)
             cursor.execute(insert_query, row)
-
-
-        # Commit the transaction
         mydb.commit()
-
-        # with open(output_file_path, 'w') as output_file:
-        #     for row in rows:
-        #         output_file.write(str(row) + '\n')
-                #print(row)
-
         cursor.close()
         mydb.close()
 
@@ -306,14 +265,10 @@ def sql_query(input_file_path, output_file_path, query,config_path):
         logging.error("An error occurred: %s", str(e))
     except TypeError as e:
         logging.error(f"Type error: {e}")
-        #print(f"Error: Type error - {e}")
 
 def execute_shell_script(input_file_path, output_file_path, function_name, param,config_path):
     command = function_name  
-    # command += f" {input_file_path} {output_file_path}"  
-    print(input_file_path,output_file_path)
     command += f" {get_file_path(input_file_path,config_path)['path']} {get_file_path(output_file_path,config_path)['path']}"  
-    print(command)
     try:
         subprocess.run(command, shell=True, check=True)
         logging.info(f"Executed shell script: {command}")
@@ -324,7 +279,6 @@ def execute_shell_script(input_file_path, output_file_path, function_name, param
 def execute_java_file(java_file_path, input_file_path, output_file_path,config_path):
     input=get_file_path(input_file_path,config_path)['path']
     output=get_file_path(output_file_path,config_path)['path']
-    print("INPUT",input)
     class_name = java_file_path.split('/')[-1].split('.')[0]
     subprocess.run(['javac', java_file_path])
     subprocess.run(['java', '-cp', '/'.join(java_file_path.split('/')[:-1]), class_name, input, output])

@@ -4,8 +4,7 @@ import xml.etree.ElementTree as ET
 from lxml import etree
 from dpp import task_library, udf
 
-logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
-
+logging.basicConfig(filename='app.log', level=logging.WARNING, format='%(asctime)s %(levelname)s %(message)s')
 
     
 def validate_xml(xml_path):
@@ -65,14 +64,17 @@ def validate_xml(xml_path):
     if result:
         return True
     else:
-        print(schema.error_log)
         return False
 
 def parse_and_execute(xml_path):
-    tree = ET.parse(xml_path)
-    root = tree.getroot()
-    config_path = root.find('config').text
-   
+    try:
+        tree = ET.parse(xml_path)
+        root = tree.getroot()
+        config_path = root.find('config').text
+    except Exception as e:
+        logging.error("Error parsing XML: " + str(e))
+        return
+
     for stage in root.findall('stage'):
         task = stage.find('task')
         function_name = task.find('function').text
@@ -81,24 +83,26 @@ def parse_and_execute(xml_path):
         output_file_path = stage.find('output').text
         param = [param.text for param in task.findall('param')]
 
-        if language == 'java':
-            # Compile and run Java file
-            logging.info("Compiling and running Java file " + function_name)
-            task_library.execute_java_file(function_name, input_file_path, output_file_path,config_path)
-        elif function_name.endswith('.sh'):
-            # Execute shell script
-            logging.info("Executing Shell Script " + function_name) 
-            task_library.execute_shell_script(input_file_path, output_file_path, function_name, param,config_path)
-        elif hasattr(udf, function_name):
-            logging.info('Executing UDF ' + function_name)
-            if param:
-                getattr(udf, function_name)(input_file_path, output_file_path, param,config_path)
-            else:
-                getattr(udf, function_name)(input_file_path, output_file_path,config_path)
-        else:
-            if hasattr(task_library, function_name):
+        try:
+            if language == 'java':
+                # Compile and run Java file
+                logging.info("Compiling and running Java file " + function_name)
+                task_library.execute_java_file(function_name, input_file_path, output_file_path,config_path)
+            elif function_name.endswith('.sh'):
+                # Execute shell script
+                logging.info("Executing Shell Script " + function_name) 
+                task_library.execute_shell_script(input_file_path, output_file_path, function_name, param,config_path)
+            elif hasattr(udf, function_name):
+                logging.info('Executing UDF ' + function_name)
                 if param:
-                    getattr(task_library, function_name)(input_file_path, output_file_path, param,config_path)
+                    getattr(udf, function_name)(input_file_path, output_file_path, param,config_path)
                 else:
-                    getattr(task_library, function_name)(input_file_path, output_file_path,config_path)
-
+                    getattr(udf, function_name)(input_file_path, output_file_path,config_path)
+            else:
+                if hasattr(task_library, function_name):
+                    if param:
+                        getattr(task_library, function_name)(input_file_path, output_file_path, param,config_path)
+                    else:
+                        getattr(task_library, function_name)(input_file_path, output_file_path,config_path)
+        except Exception as e:
+            logging.error("Error executing task: " + str(e))
