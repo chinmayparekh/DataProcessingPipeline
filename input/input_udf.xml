@@ -3,7 +3,7 @@
     <stage>
         <input type="text">Text1</input>
         <task type="udf">
-            <function>/home/kritin/College/DM/Project/DataProcessingPipeline/dpp/example_script.sh</function>
+            <function>/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh</function>
             <param></param>
         </task>
         <output>Shell</output>
