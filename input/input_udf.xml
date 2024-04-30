@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <stage>
+        <input type="text">./input/test.txt</input>
+        <task type="udf">
+            <function>./lib/example_script.sh</function>
+            <param></param>
+        </task>
+        <output>./output/shelling.txt</output>
+        <sequenceId>1</sequenceId>
+    </stage>
+    <stage>
+        <input type="excel">Students</input>
+        <task type="udf">
+            <function>slice</function>
+            <param>Name</param>
+        </task>
+        <output>Slice</output>
+        <sequenceId>1</sequenceId>
+    </stage>
+</pipeline>
