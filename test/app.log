@@ -1,0 +1,7 @@
+2024-04-30 14:15:57,857 Executing Shell Script ./lib/example_script.sh
+2024-04-30 14:15:57,860 Shell script execution failed: Command './lib/example_script.sh ./input/test.txt ./output/shelling.txt' returned non-zero exit status 127.
+2024-04-30 14:24:16,768 Executing Shell Script /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh
+2024-04-30 14:24:16,775 Executed shell script: /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh Test1 ./output/shelling.txt
+2024-04-30 14:24:16,776 Executing UDF slice
+2024-04-30 14:24:16,776 Slicing DataFrame
+2024-04-30 14:24:16,776 Input file not found.
