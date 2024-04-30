@@ -3,5 +3,6 @@ test/env
 dist
 build
 .env
-.dpp.egg-info
+dpp.egg-info
 datasources.json
+app.log

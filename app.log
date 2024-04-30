@@ -7,3 +7,7 @@
 2024-04-30 14:54:14,527 Executed shell script: /home/kritin/College/DM/Project/DataProcessingPipeline/dpp/example_script.sh /home/kritin/College/DM/Project/DataProcessingPipeline/input/test.txt /home/kritin/College/DM/Project/DataProcessingPipeline/output/test_shell.txt
 2024-04-30 14:54:14,527 Executing UDF slice
 2024-04-30 14:54:14,527 Slicing DataFrame
+2024-04-30 15:01:37,155 Executing Shell Script /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh
+2024-04-30 15:01:37,167 Executed shell script: /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/dpp/example_script.sh /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/input/test.txt /home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/output/test_shell.txt
+2024-04-30 15:01:37,168 Executing UDF slice
+2024-04-30 15:01:37,168 Slicing DataFrame
