@@ -320,3 +320,11 @@ def execute_shell_script(input_file_path, output_file_path, function_name, param
     except subprocess.CalledProcessError as e:
         logging.error(f"Shell script execution failed: {e}")
         raise
+    
+def execute_java_file(java_file_path, input_file_path, output_file_path,config_path):
+    input=get_file_path(input_file_path,config_path)['path']
+    output=get_file_path(output_file_path,config_path)['path']
+    print("INPUT",input)
+    class_name = java_file_path.split('/')[-1].split('.')[0]
+    subprocess.run(['javac', java_file_path])
+    subprocess.run(['java', '-cp', '/'.join(java_file_path.split('/')[:-1]), class_name, input, output])

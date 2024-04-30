@@ -6,3 +6,4 @@ build
 dpp.egg-info
 datasources.json
 app.log
+config

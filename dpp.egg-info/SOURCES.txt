@@ -8,4 +8,3 @@ dpp.egg-info/SOURCES.txt
 dpp.egg-info/dependency_links.txt
 dpp.egg-info/requires.txt
 dpp.egg-info/top_level.txt
-test/test.py
