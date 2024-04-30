@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <stage>
-        <input type="text">./input/test.txt</input>
+        <input type="text">Text1</input>
         <task type="udf">
-            <function>./lib/example_script.sh</function>
+            <function>/home/kritin/College/DM/Project/DataProcessingPipeline/dpp/example_script.sh</function>
             <param></param>
         </task>
-        <output>./output/shelling.txt</output>
+        <output>Shell</output>
         <sequenceId>1</sequenceId>
     </stage>
     <stage>
