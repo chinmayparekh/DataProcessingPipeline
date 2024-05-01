@@ -1,6 +1,0 @@
-      Name  Age
-0  Chinmay   21
-1    Arjun   24
-2      Dev   13
-3     Sita   42
-4     Ajay   20

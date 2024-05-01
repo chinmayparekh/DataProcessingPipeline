@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+     <stage>
+        <input type="excel">market_fact,cust_dim</input>
+        <task type="in-built">
+            <function>join</function>
+            <param>Cust_id</param>
+        </task>
+        <output>market_cust</output>
+        <sequenceId>1</sequenceId>
+    </stage>
+     <stage>
+        <input type="excel">market_cust,ship_dim</input>
+        <task type="in-built">
+            <function>join</function>
+            <param>Ship_id</param>
+        </task>
+        <output>market_ship</output>
+        <sequenceId>2</sequenceId>
+    </stage>
+     <stage>
+        <input type="excel">market_ship,ord_dim</input>
+        <task type="in-built">
+            <function>join</function>
+            <param>Ord_id</param>
+        </task>
+        <output>market_ord</output>
+        <sequenceId>3</sequenceId>
+    </stage>
+     <stage>
+        <input type="excel">market_ord,prod_dim</input>
+        <task type="in-built">
+            <function>join</function>
+            <param>Prod_id</param>
+        </task>
+        <output>market_final</output>
+        <sequenceId>4</sequenceId>
+    </stage>
+   
+    
+    <config>/Users/sumanth/Documents/sem8/DM/DataProcessingPipeline/config/datasources.json</config>
+</pipeline>
