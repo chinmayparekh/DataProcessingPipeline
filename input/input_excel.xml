@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <stage>
-        <input type="excel">Students</input>
+        <input type="excel">Students</input> 
         <task type="in-built">
             <function>slice</function>
             <param>Name</param>

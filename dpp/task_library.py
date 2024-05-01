@@ -38,11 +38,14 @@ def slice(input_file_path, output_file_path, column_name, config_path):
         logging.info("Slicing DataFrame")
         input_file_path = get_file_path(input_file_path, config_path)["path"]
         output_file_path = get_file_path(output_file_path,config_path)["path"]
+
+        logging.info(input_file_path)
+
         df = pd.read_excel(input_file_path)
         sliced = df[column_name]
+        sliced = pd.DataFrame(sliced)
 
-        with open(output_file_path, 'w') as output_file:
-            output_file.write(str(sliced))
+        sliced.to_excel(output_file_path, index=False)
     except FileNotFoundError:
         logging.error("Input file not found.")
     except KeyError:
@@ -59,8 +62,9 @@ def dice(input_file_path, output_file_path, column_names,config_path):
         df = pd.read_excel(input_file_path)
         diced = df[column_names]
 
-        with open(output_file_path, 'w') as output_file:
-            output_file.write(str(diced))
+        diced = pd.DataFrame(diced)
+
+        diced.to_excel(output_file_path, index=False)
     except FileNotFoundError:
         logging.error("Input file not found.")
     except KeyError:
@@ -77,8 +81,7 @@ def remove_nulls(input_file_path, output_file_path,config_path):
         df = pd.read_excel(input_file_path)
         no_nulls = df.dropna()
 
-        with open(output_file_path, 'w') as output_file:
-            output_file.write(str(no_nulls))
+        no_nulls.to_excel(output_file_path,index=False)
     except FileNotFoundError:
         logging.error("Input file not found.")
     except TypeError as e:
@@ -92,8 +95,7 @@ def upper(input_file_path, output_file_path, column_name,config_path):
         df = pd.read_excel(input_file_path)
         df[column_name[0]] = df[column_name[0]].str.upper()
 
-        with open(output_file_path, 'w') as output_file:
-            output_file.write(str(df))
+        df.to_excel(output_file_path, index=False)
     except FileNotFoundError:
         logging.error("Input file not found.")
     except KeyError:
@@ -117,6 +119,26 @@ def mean(input_file_path, output_file_path, column_name,config_path):
         logging.error("Column not found in the DataFrame.")
     except TypeError as e:
         logging.error(f"Type error: {e}")
+
+def join(input_file_path1, input_file_path2, output_file_path, key, config_path):
+    try:
+        logging.info("VLOOKUP ontwo Excel files")
+        input_file_path1 = get_file_path(input_file_path1,config_path)["path"]
+        input_file_path2 = get_file_path(input_file_path2, config_path)["path"]
+        output_file_path = get_file_path(output_file_path, config_path)["path"]
+
+        df1 = pd.read_excel(input_file_path1)
+        df2 = pd.read_excel(input_file_path2)
+
+        merged_df = pd.merge(df1, df2, on=key, how="inner")
+
+        merged_df.to_excel(output_file_path, index=False)
+
+    except FileNotFoundError:
+        logging.error("Input file not found")
+    except TypeError as e:
+        logging.error(f"Type error: {e}")
+
 # Function to convert text to uppercase
 def uppercase(input_file_path, output_file_path,config_path):
     try:

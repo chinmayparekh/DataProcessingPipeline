@@ -98,6 +98,15 @@ def parse_and_execute(xml_path):
                     getattr(udf, function_name)(input_file_path, output_file_path, param,config_path)
                 else:
                     getattr(udf, function_name)(input_file_path, output_file_path,config_path)
+            elif function_name=="join":
+                inps = input_file_path.split(",")
+
+                inp1 = inps[0]
+                inp2 = inps[1]
+
+                task_library.join(inp1,inp2,output_file_path,param,config_path)
+
+
             else:
                 if hasattr(task_library, function_name):
                     if param:
