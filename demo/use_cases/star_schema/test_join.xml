@@ -38,5 +38,5 @@
     </stage>
    
     
-    <config>/Users/sumanth/Documents/sem8/DM/DataProcessingPipeline/config/datasources.json</config>
+    <config>/home/kritin/College/DM/Project/DataProcessingPipeline/config/datasources.json</config>
 </pipeline>

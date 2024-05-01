@@ -8,6 +8,9 @@ import pandas as pd
 
 
 def slice(input_file_path, output_file_path, column_name,config_path):
+    a=0
+    for i in range(0, 100000000):
+        a+=1
     try:
         logging.info("Slicing DataFrame")
         input_file_path = task_library.get_file_path(input_file_path,config_path)["path"]

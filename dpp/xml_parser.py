@@ -3,6 +3,8 @@ import subprocess
 import xml.etree.ElementTree as ET
 from lxml import etree
 from dpp import task_library, udf
+import threading
+from collections import defaultdict
 
 logging.basicConfig(filename='app.log', level=logging.WARNING, format='%(asctime)s %(levelname)s %(message)s')
 
@@ -75,43 +77,63 @@ def parse_and_execute(xml_path):
         logging.error("Error parsing XML: " + str(e))
         return
 
+    # Group stages by sequence ID
+    stage_groups = defaultdict(list)
     for stage in root.findall('stage'):
-        task = stage.find('task')
-        function_name = task.find('function').text
-        language = task.get('language')
-        input_file_path = stage.find('input').text
-        output_file_path = stage.find('output').text
-        param = [param.text for param in task.findall('param')]
+        sequence_id = int(stage.find('sequenceId').text)
+        stage_groups[sequence_id].append(stage)
 
-        try:
-            if language == 'java':
-                # Compile and run Java file
-                logging.info("Compiling and running Java file " + function_name)
-                task_library.execute_java_file(function_name, input_file_path, output_file_path,config_path)
-            elif function_name.endswith('.sh'):
-                # Execute shell script
-                logging.info("Executing Shell Script " + function_name) 
-                task_library.execute_shell_script(input_file_path, output_file_path, function_name, param,config_path)
-            elif hasattr(udf, function_name):
-                logging.info('Executing UDF ' + function_name)
-                if param:
-                    getattr(udf, function_name)(input_file_path, output_file_path, param,config_path)
-                else:
-                    getattr(udf, function_name)(input_file_path, output_file_path,config_path)
-            elif function_name=="join":
-                inps = input_file_path.split(",")
+    # Execute stages in groups (based on sequence ID) in ascending order
+    for sequence_id in sorted(stage_groups.keys()):
+        # List to hold threads for current group
+        threads = []
 
-                inp1 = inps[0]
-                inp2 = inps[1]
+        # Create a thread for each stage in the current group
+        for stage in stage_groups[sequence_id]:
+            thread = threading.Thread(target=execute_stage, args=(stage, config_path))
+            threads.append(thread)
+            print("Number of threads is ", len(threads))
+            thread.start()
 
-                task_library.join(inp1,inp2,output_file_path,param,config_path)
+        # Wait for all threads in the current group to finish
+        for thread in threads:
+            thread.join()
 
-
+def execute_stage(stage, config_path):
+    task = stage.find('task')
+    function_name = task.find('function').text
+    language = task.get('language')
+    input_file_path = stage.find('input').text
+    output_file_path = stage.find('output').text
+    param = [param.text for param in task.findall('param')]
+    print("EXECUTING ", function_name)
+    try:
+        if language == 'java':
+            # Compile and run Java file
+            logging.info("Compiling and running Java file " + function_name)
+            task_library.execute_java_file(function_name, input_file_path, output_file_path, config_path)
+        elif function_name.endswith('.sh'):
+            # Execute shell script
+            logging.info("Executing Shell Script " + function_name)
+            task_library.execute_shell_script(input_file_path, output_file_path, function_name, param, config_path)
+        elif hasattr(udf, function_name):
+            print("EXECUTING UDF")
+            logging.info('Executing UDF ' + function_name)
+            if param:
+                getattr(udf, function_name)(input_file_path, output_file_path, param, config_path)
             else:
-                if hasattr(task_library, function_name):
-                    if param:
-                        getattr(task_library, function_name)(input_file_path, output_file_path, param,config_path)
-                    else:
-                        getattr(task_library, function_name)(input_file_path, output_file_path,config_path)
-        except Exception as e:
-            logging.error("Error executing task: " + str(e))
+                getattr(udf, function_name)(input_file_path, output_file_path, config_path)
+        elif function_name == "join":
+            inps = input_file_path.split(",")
+            inp1 = inps[0]
+            inp2 = inps[1]
+
+            task_library.join(inp1, inp2, output_file_path, param, config_path)
+        else:
+            if hasattr(task_library, function_name):
+                if param:
+                    getattr(task_library, function_name)(input_file_path, output_file_path, param, config_path)
+                else:
+                    getattr(task_library, function_name)(input_file_path, output_file_path, config_path)
+    except Exception as e:
+        logging.error("Error executing task: " + str(e))
