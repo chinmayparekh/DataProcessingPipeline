@@ -2,7 +2,9 @@ import logging
 import subprocess
 import xml.etree.ElementTree as ET
 from lxml import etree
+
 from dpp import udf
+
 from dpp import task_library
 import threading
 from collections import defaultdict
@@ -121,6 +123,7 @@ def execute_stage(stage, config_path):
             print("EXECUTING UDF")
             logging.info('Executing UDF ' + function_name)
             if param:
+                print("PARAMS: ", param)
                 getattr(udf, function_name)(input_file_path, output_file_path, param, config_path)
             else:
                 getattr(udf, function_name)(input_file_path, output_file_path, config_path)
