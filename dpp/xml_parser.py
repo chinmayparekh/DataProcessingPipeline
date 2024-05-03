@@ -2,7 +2,7 @@ import logging
 import subprocess
 import xml.etree.ElementTree as ET
 from lxml import etree
-from demo.use_cases.udf import udf
+from dpp import udf
 from dpp import task_library
 import threading
 from collections import defaultdict

@@ -12,7 +12,7 @@
     <stage>
         <input type="text">Text1</input>
         <task type="udf" language="shell">
-            <function>/Users/sumanth/Documents/sem8/DM/DataProcessingPipeline/dpp/example_script.sh</function>
+            <function>/Users/sumanth/Documents/sem8/DM/DataProcessingPipeline/demo/use_cases/udf/example_script.sh</function>
             <param></param>
         </task>
         <output>Shell</output>
