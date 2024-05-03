@@ -36,7 +36,22 @@
         <output>market_final</output>
         <sequenceId>4</sequenceId>
     </stage>
-   
-    
+    <stage>
+        <input type="excel">market_final</input>
+        <task type="in-built">
+            <function>slice</function>
+            <param>Ship_id</param>
+        </task>
+        <output>Slice</output>
+        <sequenceId>5</sequenceId>
+    </stage>
+    <stage>
+        <input type="sql">Slice</input>
+        <task type="in-built">
+            <function>excelToSQL</function>
+        </task>
+        <output>companydb</output>
+        <sequenceId>6</sequenceId>
+    </stage>    
     <config>/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/DataProcessingPipeline/config/datasources.json</config>
 </pipeline>

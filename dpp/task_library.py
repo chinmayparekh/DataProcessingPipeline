@@ -9,7 +9,7 @@ import logging
 import subprocess
 
 # Configure logging
-logging.basicConfig(filename='app.log', level=logging.WARNING, format='%(asctime)s %(levelname)s %(message)s')
+logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
 
 nltk.download('punkt')
 nltk.download('wordnet')
@@ -253,6 +253,39 @@ def remove_stopwords(input_file_path, output_file_path,config_path):
 
     except TypeError as e:
         logging.error(f"Type error: {e}")
+        
+
+def excelToSQL(input_file_path, output_file_path, config_path):
+    print("IM HERE")
+
+    config = get_file_path(output_file_path,config_path)
+    input_file = get_file_path(input_file_path,config_path)["path"]
+    print("INPUT FILE IS ", input_file)
+    outputSQLTable = config['table']
+
+    print(config)
+    mydb = mysql.connector.connect(
+        host = config['server'],
+        user = config['user'],
+        password = config['password'],
+        database = config['database']
+    )
+    cursor = mydb.cursor()
+    print(cursor)
+    df = pd.read_excel(input_file, skiprows=1)
+    # Iterate over rows and return data
+    data = []
+    for index, row in df.iterrows():
+        data.append(row.tolist()) 
+    
+    num=len(data[0])
+    s_string = ','.join(['%s'] * num)
+    for row in data:
+        insert_query = f"INSERT INTO "+get_file_path(output_file_path,config_path)["table"]+" VALUES ("+s_string+")"  # Modify this query with your table's columns
+        cursor.execute(insert_query, row)
+    mydb.commit()
+    cursor.close()
+    mydb.close()
 
 def sql_query(input_file_path, output_file_path, query,config_path):
     config = get_file_path(input_file_path,config_path)
@@ -274,6 +307,7 @@ def sql_query(input_file_path, output_file_path, query,config_path):
         s_string = ','.join(['%s'] * num)
         for row in rows:
             insert_query = f"INSERT INTO "+get_file_path(output_file_path,config_path)["table"]+" VALUES ("+s_string+")"  # Modify this query with your table's columns
+            print(insert_query)
             cursor.execute(insert_query, row)
         mydb.commit()
         cursor.close()

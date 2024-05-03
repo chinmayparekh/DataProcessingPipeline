@@ -45,5 +45,5 @@
         <output>Mean</output>
         <sequenceId>5</sequenceId>
     </stage>
-    <config>/home/chinmay/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/DataProcessingPipeline/config/datasources.json</config>
+    <config>/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/DataProcessingPipeline/config/datasources.json</config>
 </pipeline>
