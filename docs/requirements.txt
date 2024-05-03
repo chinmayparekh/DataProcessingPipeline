@@ -1,5 +1,5 @@
 click==8.1.7
-dpp@ git+https://github.com/chinmayparekh/DataProcessingPipeline.git
+dpp @ git+https://github.com/chinmayparekh/DataProcessingPipeline.git
 et-xmlfile==1.1.0
 joblib==1.4.0
 lxml==5.2.1

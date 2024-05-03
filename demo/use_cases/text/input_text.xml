@@ -9,6 +9,6 @@
         <output>companydb</output>
         <sequenceId>1</sequenceId>
     </stage>
-    <config>/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/DataProcessingPipeline/config/datasources.json</config>
+    <config>/home/kritin/College/DM/Project/DataProcessingPipeline/config/datasources.json</config>
 
 </pipeline>

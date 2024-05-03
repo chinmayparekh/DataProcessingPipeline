@@ -1,18 +1,10 @@
 Metadata-Version: 2.1
 Name: dpp
 Version: 0.1
-Requires-Dist: click==8.1.7
-Requires-Dist: et-xmlfile==1.1.0
-Requires-Dist: joblib==1.4.0
-Requires-Dist: lxml==5.2.1
-Requires-Dist: mysql-connector-python==8.3.0
-Requires-Dist: nltk==3.8.1
-Requires-Dist: numpy==1.26.4
-Requires-Dist: openpyxl==3.1.2
-Requires-Dist: pandas==2.2.2
-Requires-Dist: python-dateutil==2.9.0.post0
-Requires-Dist: pytz==2024.1
-Requires-Dist: regex==2024.4.16
-Requires-Dist: six==1.16.0
-Requires-Dist: tqdm==4.66.2
-Requires-Dist: tzdata==2024.1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+
+UNKNOWN
+
