@@ -38,5 +38,5 @@
     </stage>
    
     
-    <config>/chin/semester8/data_modelling/project/data_processing_pipeline/config/datasources.json</config>
+    <config>/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/DataProcessingPipeline/config/datasources.json</config>
 </pipeline>

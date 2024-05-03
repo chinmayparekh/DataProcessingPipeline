@@ -4,7 +4,6 @@
         <input type="excel">Students</input>
         <task type="udf" language="python">
             <function>slice</function>
-            <param>/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/demo/use_cases/udf/udf.py</param>
             <param>Name</param>
         </task>
         <output>Slice</output>
@@ -13,11 +12,11 @@
     <stage>
         <input type="text">Text1</input>
         <task type="udf" language="shell">
-            <function>/Users/sumanth/Documents/sem8/DM/DataProcessingPipeline/demo/use_cases/udf/example_script.sh</function>
+            <function>/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/DataProcessingPipeline/demo/use_cases/udf/example_script.sh</function>
             <param></param>
         </task>
         <output>Shell</output>
         <sequenceId>1</sequenceId>
     </stage>
-    <config>/chin/semester8/data_modelling/project/data_processing_pipeline/config/datasources.json</config>
+    <config>/home/chinmay/chin/semester8/data_modelling/project/data_processing_pipeline/DataProcessingPipeline/config/datasources.json</config>
 </pipeline>
