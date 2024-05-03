@@ -4,9 +4,6 @@ from dpp import task_library
 import pandas as pd
 
 
-
-
-
 def slice(input_file_path, output_file_path, column_name,config_path):
     a=0
     for i in range(0, 100000000):
@@ -18,8 +15,7 @@ def slice(input_file_path, output_file_path, column_name,config_path):
         df = pd.read_excel(input_file_path)
         sliced = df[column_name]
 
-        with open(output_file_path, 'w') as output_file:
-            output_file.write(str(sliced))
+        sliced.to_excel(output_file_path, index=False)
     except FileNotFoundError:
         logging.error("Input file not found.")
         #print("Error: Input file not found.")
