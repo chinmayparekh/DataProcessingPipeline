@@ -256,14 +256,9 @@ def remove_stopwords(input_file_path, output_file_path,config_path):
         
 
 def excelToSQL(input_file_path, output_file_path, config_path):
-    print("IM HERE")
-
     config = get_file_path(output_file_path,config_path)
     input_file = get_file_path(input_file_path,config_path)["path"]
-    print("INPUT FILE IS ", input_file)
     outputSQLTable = config['table']
-
-    print(config)
     mydb = mysql.connector.connect(
         host = config['server'],
         user = config['user'],
@@ -271,7 +266,6 @@ def excelToSQL(input_file_path, output_file_path, config_path):
         database = config['database']
     )
     cursor = mydb.cursor()
-    print(cursor)
     df = pd.read_excel(input_file, skiprows=1)
     # Iterate over rows and return data
     data = []
