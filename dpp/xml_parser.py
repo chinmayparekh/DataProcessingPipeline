@@ -2,7 +2,8 @@ import logging
 import subprocess
 import xml.etree.ElementTree as ET
 from lxml import etree
-from dpp import task_library, udf
+from demo.use_cases.udf import udf
+from dpp import task_library
 import threading
 from collections import defaultdict
 
@@ -112,7 +113,7 @@ def execute_stage(stage, config_path):
             # Compile and run Java file
             logging.info("Compiling and running Java file " + function_name)
             task_library.execute_java_file(function_name, input_file_path, output_file_path, config_path)
-        elif function_name.endswith('.sh'):
+        elif language=="shell":
             # Execute shell script
             logging.info("Executing Shell Script " + function_name)
             task_library.execute_shell_script(input_file_path, output_file_path, function_name, param, config_path)
