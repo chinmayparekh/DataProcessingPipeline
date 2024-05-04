@@ -2,12 +2,12 @@
 To get started with this project, follow these steps:
 1. Create a virtual environment
 ```bash 
-    python3 -m venv env
+python3 -m venv env
 ```
 
 2. Activate the environment
 ```
-    source env/bin/activate
+source env/bin/activate
 ```
 
 3. Install our library conatining pre-defined functions that helps in processing your data
